@@ -26,7 +26,7 @@ jobs:
             - name: Print Hi
               id: print-hi
               env:
-                  github-token: AABBBCCCC
+                  GITHUB_TOKEN: AABBBCCCC
               run: |
                   echo "Hi world 1";
                   echo "hi world 2";
@@ -35,4 +35,4 @@ jobs:
               run: |
                   echo "Bye 1";
                   echo "Bye 2";
-                  echo "github-token value is: $github-token";
+                  echo "github-token value is: $GITHUB_TOKEN";

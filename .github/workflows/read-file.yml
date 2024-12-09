@@ -7,21 +7,15 @@ on:
       - completed
   workflow_dispatch:
 
+jobs:
+  read-file:
+    runs-on: ubuntu-latest
 
-read-file:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Read JSON array from text file
-      id: read-json-array
-      run: |
-        echo "Started Read File Workflow";
-        json_arr = $(cat .github/assets/data.txt)
-        values = ($(echo $json_arr | jq -r '.[]'))
-        
-        echo "Values are: ${values[@]}";
-        
-        for val in $values; do
-          echo "single val is: $val";
+      - name: Read JSON array from text file
+        id: read-json-array
+        run: |
+          echo "Started Read File Workflow";
