@@ -18,4 +18,9 @@ jobs:
       - name: Read JSON array from text file
         id: read-json-array
         run: |
-          echo "Started Read File Workflow";
+          echo "Started Read File Workflow - AUTO Triggered";
+          json_arr = $(cat .github/assets/data.txt)
+          values = ($(echo $json_arr | jq -r '.[]'))
+          
+          echo "Values are: $values";
+          

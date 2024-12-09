@@ -31,9 +31,10 @@ jobs:
               run: |
                   echo "Hi world 1";
                   echo "hi world 2";
+                  echo "github token in same step: $GITHUB_TOKEN";
 
             - name: Print Bye
               run: |
                   echo "Bye 1";
                   echo "Bye 2";
-                  echo "github-token value is: $GITHUB_TOKEN";
+                  echo "github token in other step but same job(can't access): $GITHUB_TOKEN";
