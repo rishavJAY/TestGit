@@ -1,0 +1,21 @@
+name: Read File
+
+on:
+  workflow_run:
+    workflows: ["First Workflow"]
+    types:
+      - completed
+  workflow_dispatch:
+
+jobs:
+  read-file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Read JSON array from text file
+        id: read-json-array
+        run: |
+          echo "Started Read File Workflow";
