@@ -1,0 +1,21 @@
+name: First Workflow
+
+on:
+    push:
+        branches:
+            github-actions
+
+jobs:
+    learn-jobs:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print Hello World
+              run: |
+                  echo "hello world 1";
+                  echo "hello world 2";
+
+            - name: Print Good Bye
+              run: | 
+                  echo "Good Bye 1";
+                  echo "Good Bye 2";
+                  
