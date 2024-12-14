@@ -1,6 +1,8 @@
 name: Read File
 
 on:
+  pull_request:
+    types: [opened, synchronize]
   workflow_run:
     workflows: ["First Workflow"]
     types:
@@ -19,8 +21,8 @@ jobs:
         id: read-json-array
         run: |
           echo "Started Read File Workflow - AUTO Triggered";
-          json_arr = $(cat .github/assets/data.txt)
-          values = ($(echo $json_arr | jq -r '.[]'))
-          
-          echo "Values are: $values";
-          
+
+      - name: BOT PR Approve
+        uses: hmarr/auto-approve-action@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
