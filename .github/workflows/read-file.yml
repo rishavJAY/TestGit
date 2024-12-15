@@ -1,6 +1,8 @@
 name: Read File
 
 on:
+  pull_request:
+    types: [opened, synchronize]
   workflow_run:
     workflows: ["First Workflow"]
     types:
@@ -12,10 +14,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: print
+        run: echo "Print step in PR branch"
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Read JSON array from text file
         id: read-json-array
         run: |
-          echo "Started Read File Workflow";
+          echo "Started Read File Workflow - AUTO Triggered";
+
+      - name: BOT PR Approve
+        uses: hmarr/auto-approve-action@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
