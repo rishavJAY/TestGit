@@ -19,3 +19,6 @@ jobs:
         id: read-json-array
         run: |
           echo "Started Read File Workflow";
+
+      - name: print step in master branch
+        run: echo "Print step in master branch";
